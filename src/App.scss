@@ -1,44 +1,104 @@
-h1 {
-  color:red;
-  span {
-    color:green;
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+}
+header {
+  text-align: center;
+  margin: auto;
+  max-width: 100vw;
+  background-image: url('https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 2vh 0;
+  min-height: 20vh;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  &:before {content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 0;
+  }
+  label {
+    display: block;
+    font-size: 1.4rem;
+  }
+  input {
+    display: block;
+    margin: 1rem auto;
+  }
+  form {
+    max-width: 20%;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
   }
 }
-// .App {
-//   text-align: center;
-// }
+  
+h1 {
+  position: inherit;
+  font-size: 4rem;
+  text-transform: uppercase;
+  text-shadow: 2px 5px 12px black;
+}
 
-// .App-logo {
-//   height: 40vmin;
-//   pointer-events: none;
-// }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #61dafb;
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+nav {
+  background-color: #082b57;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+  ul{
+    margin: 0 auto;
+    @media screen and (min-width: 728px) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  li {
+    
+    padding: 1rem;
+    &:hover {
+      border-bottom: 3px solid #fff;
+    }
+    ul {
+      display: block;
+    }
+  }
+  a {
+    cursor: pointer;
+    padding: .5rem 1rem;
+  }
+}
+footer {
+  background-color: #082b57;
+  color: #fff;
+  padding: 2rem;
+}
+container {
+  width: 80%;
+  margin: 0 auto;
+  @media screen and(min-width: 728px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  div {
+    width: 70%;
+    li {
+      background-color: lightgray;
+      padding: .5rem 1rem;
+      margin-bottom: .5rem;
+    }
+  }
+}
+div > span {
+  text-align: right;
+}
+.quizListElement {
+  display: flex;
+  justify-content: space-between;
+}
