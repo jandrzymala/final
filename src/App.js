@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.scss';
-import { useState, useEffect } from 'react';
-
-function App() {
-  const [counter, setCounter] = useState(1);
- 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter(prevState => prevState + 1);
-    }, 1000)
-  }, []);
- 
-  
+import UsersList from './UsersList';
+import UsersManager from './UsersManager';
+import QuizLeague from './QuizLeague';
+const App = () => {
   return (
-    <div className="App">
-      <>
-        <h1>Welcome to the QUiZ <span>League</span></h1>
-        <h2>Twój czas to {counter}</h2>
-      </>
+        <div className="App">
+          <nav>
+            <container>
+              <ul>
+                <li><a>Lista uczestników</a></li>
+                <li><a>Lista quizów</a></li>
+              </ul>
+            </container> 
+          </nav>
+          <header>
+            <h1>Quizowa liga</h1>
+            <p>Sprawdź, co wiesz!</p>
+            <UsersManager />
+          </header>
+          
+        <section>
+          <container>
+            <QuizLeague />
+            <UsersList />
+          </container> 
+        </section>
+        <footer>
+          <h3>Dołącz do ligi</h3>
+        </footer>
     </div>
   );
 }
