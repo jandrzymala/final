@@ -1,3 +1,4 @@
+import './QuizBody.scss';
 import React, { useState } from 'react'
 import CountDownTimer from './CountDownTimer'
 import QuizQuestion from './QuizQuestion'
@@ -8,7 +9,7 @@ return (
     <div>
     <ul>
         <li className='quizListElement'>
-            <span><strong>Quiz 1</strong> Stolice państw </span>
+            <span><strong>Quiz 1</strong> {title} </span>
             <button onClick={(e) => {
             e.preventDefault()
             setIsOpen(true)
