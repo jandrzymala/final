@@ -79,7 +79,7 @@ footer {
   color: #fff;
   padding: 2rem;
 }
-container {
+.container {
   width: 80%;
   margin: 0 auto;
   @media screen and(min-width: 728px) {
@@ -87,7 +87,7 @@ container {
     justify-content: space-between;
   }
   div {
-    width: 70%;
+    width: 100%;
     li {
       background-color: lightgray;
       padding: .5rem 1rem;
