@@ -10,7 +10,7 @@ const App = () => {
           <nav>
             <div>
               <ul>
-                <li><a>Lista uczestników</a><UsersList /></li>
+                <li><a>Lista uczestników</a></li>
               </ul>
             </div> 
           </nav>
