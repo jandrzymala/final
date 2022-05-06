@@ -1,7 +1,92 @@
-import './QuizBody.scss';
 import React, { useState } from 'react'
 import CountDownTimer from './CountDownTimer'
-import QuizQuestion from './QuizQuestion'
+import QuizModule from './QuizModule';
+import Quiz from './QuizModules';
+import QuizQuestion from './QuizQuestion';
+import QuizModules from './QuizModules';
+import quiz1 from './Quizes-Data/quiz1';
+
+const SingleQuizBody = () => {
+	let questions = 
+	[
+		{
+			questionText: 'What is the capital of France?',
+			answerOptions: [
+				{ answerText: 'New York', isCorrect: false },
+				{ answerText: 'London', isCorrect: false },
+				{ answerText: 'Paris', isCorrect: true },
+				{ answerText: 'Dublin', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'Who is CEO of Tesla?',
+			answerOptions: [
+				{ answerText: 'Jeff Bezos', isCorrect: false },
+				{ answerText: 'Elon Musk', isCorrect: true },
+				{ answerText: 'Bill Gates', isCorrect: false },
+				{ answerText: 'Tony Stark', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'The iPhone was created by which company?',
+			answerOptions: [
+				{ answerText: 'Apple', isCorrect: true },
+				{ answerText: 'Intel', isCorrect: false },
+				{ answerText: 'Amazon', isCorrect: false },
+				{ answerText: 'Microsoft', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'How many Harry Potter books are there?',
+			answerOptions: [
+				{ answerText: '1', isCorrect: false },
+				{ answerText: '4', isCorrect: false },
+				{ answerText: '6', isCorrect: false },
+				{ answerText: '7', isCorrect: true },
+			],
+		},
+	];
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	const [showScore, setShowScore] = useState(false);
+	const [score, setScore] = useState(0);
+
+	const handleAnswerOptionClick = (isCorrect) => {
+		if (isCorrect) {
+			setScore(score + 1);
+		}
+
+		const nextQuestion = currentQuestion + 1;
+		if (nextQuestion < questions.length) {
+			setCurrentQuestion(nextQuestion);
+		} else {
+			setShowScore(true);
+		}
+	};
+	return (
+		<div className='app'>
+			{showScore ? (
+				<div className='score-section'>
+					You scored {score} out of {questions.length}
+				</div>
+			) : (
+				<>
+					<div className='question-section'>
+						<div className='question-count'>
+							<span>Question {currentQuestion + 1}</span>/{questions.length}
+						</div>
+						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+					</div>
+					<div className='answer-section'>
+						{questions[currentQuestion].answerOptions.map((answerOption) => (
+							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+						))}
+					</div>
+				</>
+			)}
+		</div>
+	);
+}
+
 const QuizBody = ({title}) => {
 const [isOpen, setIsOpen] = useState(false)
 return (
@@ -9,7 +94,7 @@ return (
     <div>
     <ul>
         <li className='quizListElement'>
-            <span><strong>Quiz 1</strong> {title} </span>
+            <span><strong>Quiz 1</strong> Stolice państw </span>
             <button onClick={(e) => {
             e.preventDefault()
             setIsOpen(true)
@@ -22,13 +107,7 @@ return (
     {isOpen && (
         <div className='quizBody'>
     <CountDownTimer />
-    <>
-       <h3 className='quizTitle'>{title}</h3>
-       <QuizQuestion q={'Stolica Kirgistanu to:'} a1={'Adeny'} a2={'Taszkient'} a3={'Sana'} a4={'Biszkek'}/>
-       <QuizQuestion q={'Stolica Mali to:'} a1={'Bamako'} a2={'Banakoro'} a3={'Safo'} a4={'Kati'}/>
-       <QuizQuestion q={'Stolica Afganistanu'} a1={'Kabul'} a2={'Islamabad'} a3={'Dżalalabad'} a4={'Biszkek'}/>
-       <QuizQuestion q={'Stolica Mongolii'} a1={'Ułan Bator'} a2={'Baraguin Dugang Khid'} a3={'Sana'} a4={'Biszkek'}/>
-    </>
+        <SingleQuizBody />
         <a onClick={(e) => {
         e.preventDefault()
         setIsOpen(false)
