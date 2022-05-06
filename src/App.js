@@ -1,17 +1,18 @@
 import './App.scss';
-import UsersList from './UsersList';
-import UsersManager from './UsersManager';
-import QuizLeague from './QuizLeague';
+import './QuizBody.scss';
+import UsersList from './components/UsersList/UsersList';
+import QuizLeague from './components/QuizLeague/QuizLeague';
+import UsersManager from './components/UsersManager/UsersManager';
+
 const App = () => {
   return (
         <div className="App">
           <nav>
-            <container>
+            <div>
               <ul>
-                <li><a>Lista uczestników</a></li>
-                <li><a>Lista quizów</a></li>
+                <li><a>Lista uczestników</a><UsersList /></li>
               </ul>
-            </container> 
+            </div> 
           </nav>
           <header>
             <h1>Quizowa liga</h1>
@@ -20,13 +21,12 @@ const App = () => {
           </header>
           
         <section>
-          <container>
+          <div className='container'>
             <QuizLeague />
-            <UsersList />
-          </container> 
+          </div> 
         </section>
         <footer>
-          <h3>Dołącz do ligi</h3>
+          <h3>Projekt w budowie</h3>
         </footer>
     </div>
   );
