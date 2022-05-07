@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import SingleUser from '../SingleUser/SingleUser';
+import './userslist.scss'
 
 const UsersList = () => {
     const [data, setData] = useState(null)
@@ -19,11 +20,14 @@ const UsersList = () => {
         return <div>loading </div>
         }
         return (
+            <section className='users'>
+            <h3>ZAWODNICY</h3>
             <ul className='usersList'>
                 {data.map((user) => {
                 return <SingleUser user={user} key={user.id} />
                 })}
             </ul>
+            </section>
         )
 }
 export default UsersList
