@@ -1,0 +1,26 @@
+nav {
+    background-color: #082b57;
+    color: #fff;
+    border-bottom: 3px solid transparent;
+    ul{
+      margin: 0 auto;
+      @media screen and (min-width: 728px) {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    li {
+      
+      padding: 1rem;
+      &:hover {
+        border-bottom: 3px solid #fff;
+      }
+      ul {
+        display: block;
+      }
+    }
+    a {
+      cursor: pointer;
+      padding: .5rem 1rem;
+    }
+  }
