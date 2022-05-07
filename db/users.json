@@ -14,6 +14,16 @@
       "id": 3,
       "name": "User3",
       "totalScore": "9"
+    },
+    {
+      "name": "test",
+      "totalScore": 0,
+      "id": 4
+    },
+    {
+      "name": "",
+      "totalScore": 0,
+      "id": 5
     }
   ]
 }
