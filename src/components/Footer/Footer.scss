@@ -1,0 +1,12 @@
+footer {
+    background-color: #082b57;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    @media screen and (min-width: 728px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+}
