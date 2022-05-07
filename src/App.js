@@ -1,33 +1,25 @@
+import './generic/reset.scss';
 import './App.scss';
-import './QuizBody.scss';
+
 import UsersList from './components/UsersList/UsersList';
 import QuizLeague from './components/QuizLeague/QuizLeague';
 import UsersManager from './components/UsersManager/UsersManager';
+import Footer from './components/Footer/Footer';
+import Nav from './components/Nav/Nav';
+import Header from './components/Header/Header';
 
 const App = () => {
   return (
         <div className="App">
-          <nav>
-            <div>
-              <ul>
-                <li><a>Lista uczestników</a></li>
-              </ul>
-            </div> 
-          </nav>
-          <header>
-            <h1>Quizowa liga</h1>
-            <p>Sprawdź, co wiesz!</p>
-            <UsersManager />
-          </header>
+          <Nav/>
+          <Header />
           
         <section>
           <div className='container'>
             <QuizLeague />
           </div> 
         </section>
-        <footer>
-          <h3>Projekt w budowie</h3>
-        </footer>
+        <Footer />
     </div>
   );
 }
