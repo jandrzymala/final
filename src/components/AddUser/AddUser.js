@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-function AddUser({ userName, addUser }) {
-const [name, setName] = useState('')
+function AddUser({ addUser }) {
+const [name, setName] = useState('');
+
 
 
 function onSubmit(e) {
@@ -11,6 +12,7 @@ addUser({
 name,
 totalScore: 0,
 })
+
 }
 
 return (
@@ -25,8 +27,7 @@ return (
     </div>
     <button type='submit'>DODAJ</button>
 </form>
-<h2>Witaj {name}</h2></>
-
+</>
 )
 }
 
