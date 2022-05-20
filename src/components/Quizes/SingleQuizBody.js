@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import quiz3 from './quiz3'
+
 const SingleQuizBody = ({quiz}) => {
+<<<<<<< HEAD
 	const questions = quiz;
+=======
+	console.log(quiz);
+	const questions = quiz;
+	console.log(questions)
+>>>>>>> 611cd73470754809d73766be3f0c558f83100cb5
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
