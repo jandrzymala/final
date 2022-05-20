@@ -16,7 +16,7 @@ return (
             <li><QuizBody title={'Stolice'} singleQuiz={<SingleQuizBody1 />}/></li>
             <li><QuizBody title={'Rzeki'} singleQuiz={<SingleQuizBody2 />} questionsData={questions}/></li>
             <li><QuizBody title={'Góry'} singleQuiz={<SingleQuizBody3 />}/></li>
-            <li><QuizBody title={'Różne'} singleQuiz={<SingleQuizBody />} quiz={questions3}/></li>
+            <li><QuizBody title={'Różne'} singleQuiz={<SingleQuizBody quiz={questions3}/>} /></li>
         </ul>
         <UsersList />
     </div>

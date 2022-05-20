@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function AddUser({ userName, addUser }) {
+function AddUser({ name, addUser }) {
 const [name, setName] = useState('')
 
 
@@ -25,7 +25,36 @@ return (
     </div>
     <button type='submit'>DODAJ</button>
 </form>
-<h2>Witaj {name}</h2></>
+<h2>Witaj {name}</h2>
+const UsersList = () => {
+    const [data, setData] = useState(null)
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        fetch('http://localhost:3000/users')
+        .then((response) => {
+        return response.json()
+        })
+        .then((userData) => {
+        setData(userData)
+        setLoading(false)
+        })
+        }, [])
+        
+        if (loading) {
+        return <div>loading </div>
+        }
+        return (
+            <section className='users'>
+            <h3>ZAWODNICY</h3>
+            <ul className='usersList'>
+                {data.map((user) => {
+                return <SingleUser user={user} key={user.id} />
+                })}
+            </ul>
+            </section>
+        )
+}
+</>
 
 )
 }
