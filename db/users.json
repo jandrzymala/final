@@ -19,6 +19,11 @@
       "name": "test1",
       "totalScore": 0,
       "id": 4
+    },
+    {
+      "name": "test2",
+      "totalScore": 0,
+      "id": 5
     }
   ]
 }
