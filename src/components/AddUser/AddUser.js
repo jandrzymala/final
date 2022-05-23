@@ -31,7 +31,7 @@ const AddUser = ({ addUser }) => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <button type='submit' onClick={handleClick}>Wyślij</button>
+                <button type='submit' onClick={handleClick}>Zatwierdź</button>
             </form></div></>
             )
         }
