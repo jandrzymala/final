@@ -3,7 +3,7 @@ import CountDownTimer from '../CountDownTimer/CountDownTimer';
 import '../FullQuizBody/QuizBody.scss';
 
 
-const QuizBody = ({title, singleQuiz, quiz}) => {
+const QuizBody = ({title, singleQuiz}) => {
 const [isOpen, setIsOpen] = useState(false)
 return (
     <>
@@ -29,7 +29,7 @@ return (
         }
         }
         href='#'>
-        Zakończ QUIZ
+        Przerwij
     </button>
   </div>
 
