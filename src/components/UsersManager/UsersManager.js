@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AddUser from '../AddUser/AddUser';
-import SingleUser from '../SingleUser/SingleUser';
 
 function UsersManager() {
 const [data, setData] = useState(null)
@@ -41,11 +40,11 @@ return <div>loading </div>
 return (
 <div>
 <AddUser addUser={addUser} />
-<ul className='usersList'>
+{/* <ul className='usersList'>
                 {data.map((user) => {
                 return <SingleUser user={user} key={user.id} />
                 })}
-            </ul>
+            </ul> */}
 </div>
 )
 }
