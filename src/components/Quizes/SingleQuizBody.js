@@ -21,9 +21,12 @@ const SingleQuizBody = ({quiz}) => {
 	return (
 		<div>
 			{showScore ? (
-				<div className='userScore'>
-					you scored {score} out of {questions.length}
+			<><div className='userScore'>
+					Zdobyłeś {score} na {questions.length} możliwych
 				</div>
+				<button>Wyślij wynik</button>
+				</>
+				
 			) : (
 				<>
 					<div className='question'>
