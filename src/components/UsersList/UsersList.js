@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import SingleUser from '../SingleUser/SingleUser';
 import './userslist.scss'
-
+const saveToLocalstorage=()=> {
+    let users = fetch('http://localhost:3000/users');
+    console.log(users);
+    localStorage.setItem('current-user-id', users.id)
+}
 const UsersList = () => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -21,12 +25,12 @@ const UsersList = () => {
         }
         return (
             <section className='users'>
-            <h3>ZAWODNICY</h3>
-            <ul className='usersList'>
+            <h3>Wybierz zawodnika</h3>
+            <select className='usersList' onChange={saveToLocalstorage}>
                 {data.map((user) => {
-                return <SingleUser user={user} key={user.id} />
+                return <option user={user} key={user.id}>{user.name}</option>
                 })}
-            </ul>
+            </select>
             </section>
         )
 }
