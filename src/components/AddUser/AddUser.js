@@ -17,7 +17,6 @@ const AddUser = ({ addUser }) => {
         name,
         totalScore: 0,
         })
-        
         }
     return (
         <>
