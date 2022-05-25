@@ -7,18 +7,22 @@ const AddUser = ({ addUser }) => {
   //     e.preventDefault();
   //   };
 
-  const handleClick = (e) => {
-    setShow(true);
-  };
+  // const handleClick = (e) => {
+  //   setShow(true);
+  // };
+  // const hideOnClick = (e) => {
+  //   setShow(false);
+  // };
   function onSubmit(e) {
     e.preventDefault();
     if (name.length < 2) {
-      console.log("error");
+      alert('Nazwa użytkownika nie może być krótsza niż 2 znaki');
     } else {
       addUser({
         name,
         totalScore: 0,
       });
+      setShow(true);
       localStorage.setItem("current-user-name", name);
     }
   }
@@ -41,8 +45,8 @@ const AddUser = ({ addUser }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <button type="submit" onClick={handleClick}>
-                Zatwierdź
+              <button type="submit" >
+                Dodaj
               </button>
             </form>
           </div>
@@ -50,10 +54,8 @@ const AddUser = ({ addUser }) => {
       )}
       {show && (
         <>
-          <form onSubmit={onSubmit}>
-            <label>Witaj {name}</label>
-            <button type="submit">Dołącz!</button>
-          </form>
+        <label>Witaj {name}</label>
+         
         </>
       )}
     </>
