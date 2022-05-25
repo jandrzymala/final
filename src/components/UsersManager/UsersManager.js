@@ -6,21 +6,28 @@ const [data, setData] = useState(null)
 const [loading, setLoading] = useState(true)
 
 function addUser(user) {
-fetch('http://localhost:3000/users', {
-method: 'POST',
-body: JSON.stringify(user),
-headers: {
-'Content-Type': 'application/json',
-},
-})
-.then((response) => {
-return response.json()
-})
-.then((res) => {
-setData((prevState) => {
-return [...prevState, res]
-})
-})
+    let name = localStorage.getItem('current-user-name');
+    console.log(name);
+    if (name===user.name) {
+        alert('Nazwa użytkownika jest zajęta. Wpisz inną')
+    } else {
+        fetch('http://localhost:3000/users', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        })
+        .then((response) => {
+        return response.json()
+        })
+        .then((res) => {
+        setData((prevState) => {
+        return [...prevState, res]
+        })
+        })
+    }
+    
 }
 
 useEffect(() => {
