@@ -5,10 +5,11 @@ function UsersManager() {
 const [data, setData] = useState(null)
 const [loading, setLoading] = useState(true)
 
-function addUser(user) {
-    let name = localStorage.getItem('current-user-name');
-    console.log(name);
-    if (name===user.name) {
+async function addUser(user) {
+    let response = await fetch('http://localhost:3000/users');
+    let data = await response.json();
+    let namesArr = data.map(function(user){return user.name})
+    if (namesArr.includes(user.name)) {
         alert('Nazwa użytkownika jest zajęta. Wpisz inną')
     } else {
         fetch('http://localhost:3000/users', {
