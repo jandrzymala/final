@@ -12,13 +12,23 @@ const AddUser = ({ addUser }) => {
   };
   function onSubmit(e) {
     e.preventDefault();
-
-    addUser({
-      name,
-      totalScore: 0,
-    });
-    localStorage.setItem("current-user-name", name);
+    if (name.length < 2) {
+      console.log("error");
+    } else {
+      addUser({
+        name,
+        totalScore: 0,
+      });
+      localStorage.setItem("current-user-name", name);
+    }
   }
+  //   function formValidation() {
+  //     if (name.length > 2) {
+  //       return (e) => setName(e.target.value);
+  //     } else {
+  //       return <p>Nazwa użytkownika nie może być krótsza niż 2 znaki</p>;
+  //     }
+  //   }
   return (
     <>
       {!show && (
