@@ -7,7 +7,7 @@ const SingleQuizBody = ({ quiz }) => {
   const [score, setScore] = useState(0);
   const [data, setData] = useState(null);
   const [totalScore, setTotalscore] = useState(0);
-
+  const currentUser = localStorage.getItem("current-user-name");
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -38,6 +38,7 @@ const SingleQuizBody = ({ quiz }) => {
     <div>
       {showScore ? (
         <>
+          <h2>Hej {currentUser}</h2>
           <form className="userScore" onSubmit={updateTotalscore}>
             <p>
               Zdobyłeś {score} na {questions.length} możliwych
@@ -48,6 +49,7 @@ const SingleQuizBody = ({ quiz }) => {
         </>
       ) : (
         <>
+          <h2>Hej {currentUser}</h2>
           <div className="question">
             <div className="questionCounter">
               <span>Question {currentQuestion + 1}</span>/{questions.length}
