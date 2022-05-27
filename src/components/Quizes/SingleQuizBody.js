@@ -7,7 +7,7 @@ const SingleQuizBody = ({ quiz }) => {
   const [score, setScore] = useState(0);
   const [data, setData] = useState(null);
   const [totalScore, setTotalscore] = useState(0);
-  const currentUser = localStorage.getItem("current-user-name");
+  const currentUser = localStorage.getItem('current-user-name');
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -20,16 +20,23 @@ const SingleQuizBody = ({ quiz }) => {
       setShowScore(true);
     }
   };
-
-  function updateTotalscore(e, name) {
+  function addScores() {
+    let finalScore = totalScore + score;
+    setTotalscore(finalScore)
+  }
+  function updateTotalscore(e, name, totalScore, id) {
+    
     e.preventDefault();
-    fetch(`http://localhost:3000/cars/${name}`, {
+    fetch(`http://localhost:3000/users/${localStorage.getItem('current-user-id')}`, {
       method: "PUT",
+      body: {
+        name,
+        totalScore: addScores,
+        id
+      }
     }).then(() => {
       setData((prevState) => {
-        return prevState.filter((user) => {
-          setTotalscore(user.totalScore + score);
-        });
+          setTotalscore(addScores);
       });
     });
   }
@@ -44,7 +51,7 @@ const SingleQuizBody = ({ quiz }) => {
               Zdobyłeś {score} na {questions.length} możliwych
             </p>
 
-            <button type="submit">Wyślij wynik</button>
+            <button type="submit">Aktualizuj wynik</button>
           </form>
         </>
       ) : (
