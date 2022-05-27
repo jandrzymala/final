@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddUser from '../AddUser/AddUser';
 import SingleUser from '../SingleUser/SingleUser';
+
 function UsersManager() {
 const [data, setData] = useState(null)
 const [loading, setLoading] = useState(true)
@@ -27,9 +28,19 @@ async function addUser(user) {
         return [...prevState, res]
         })
         })
-    }
-    
+    }  
 }
+function removeUser(id) {
+    fetch(`http://localhost:3000/users/${id}`, {
+    method: 'DELETE',
+    }).then(() => {
+    setData((prevState) => {
+    return prevState.filter((user) => {
+    return user.id !== id
+    })
+    })
+    })
+    }
 
 useEffect(() => {
 fetch('http://localhost:3000/users')
@@ -50,7 +61,7 @@ return (
 <AddUser addUser={addUser} />
 <ul className='usersList'>
                 {data.map((user) => {
-                return <SingleUser user={user} key={user.id} />
+                return <SingleUser user={user} key={user.id} removeUser={removeUser}/>
                 })}
             </ul>
 </div>
