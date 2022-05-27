@@ -16,13 +16,6 @@ const AddUser = ({ addUser }) => {
       localStorage.setItem("current-user-name", name);
     }
   }
-  //   function formValidation() {
-  //     if (name.length > 2) {
-  //       return (e) => setName(e.target.value);
-  //     } else {
-  //       return <p>Nazwa użytkownika nie może być krótsza niż 2 znaki</p>;
-  //     }
-  //   }
   return (
     <>
       {!show && (
@@ -33,7 +26,9 @@ const AddUser = ({ addUser }) => {
               <input
                 type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={
+                  (e) => setName(e.target.value)
+                }
               />
               <button type="submit">Dodaj</button>
             </form>
