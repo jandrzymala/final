@@ -3,20 +3,10 @@ const AddUser = ({ addUser }) => {
   const [name, setName] = useState("");
   const [show, setShow] = useState(false);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //   };
-
-  // const handleClick = (e) => {
-  //   setShow(true);
-  // };
-  // const hideOnClick = (e) => {
-  //   setShow(false);
-  // };
   function onSubmit(e) {
     e.preventDefault();
     if (name.length < 2) {
-      alert('Nazwa użytkownika nie może być krótsza niż 2 znaki');
+      alert("Nazwa użytkownika nie może być krótsza niż 2 znaki");
     } else {
       addUser({
         name,
@@ -45,17 +35,14 @@ const AddUser = ({ addUser }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <button type="submit" >
-                Dodaj
-              </button>
+              <button type="submit">Dodaj</button>
             </form>
           </div>
         </>
       )}
       {show && (
         <>
-        <label>Witaj {name}</label>
-         
+          <label>Witaj {name}</label>
         </>
       )}
     </>
