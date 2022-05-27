@@ -1,10 +1,11 @@
 import React from 'react'
 
-function SingleUser({user}) {
+function SingleUser({user, removeUser}) {
 return (
 <li>
-<strong>{user.name}</strong>
+<strong>{user.id}. Nazwa: {user.name}</strong>
 <span> {user.totalScore} pkt</span>
+<button onClick={() => removeUser(user.id)}>USUŃ</button>
 </li>
 )
 }
