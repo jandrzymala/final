@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header>
             <h1>Quizowa liga</h1>
-            <UsersList />
+            {/* <UsersList /> */}
           </header>
     )
 }
