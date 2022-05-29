@@ -1,13 +1,45 @@
 import React, { useState } from "react";
 
-const SingleQuizBody = ({ quiz }) => {
+const SingleQuizBody = ({ quiz, totalScore: _totalScore }) => {
   const questions = quiz;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [data, setData] = useState(null);
-  const [totalScore, setTotalscore] = useState(0);
-  const currentUser = localStorage.getItem('current-user-name');
+  const [totalScore, setTotalscore] = useState(_totalScore);
+  const currentUser = localStorage.getItem("current-user-name");
+  const id = localStorage.getItem("current-user-id");
+
+  const user = {
+    name: currentUser,
+    totalScore: parseInt(totalScore) + parseInt(score),
+    id,
+  };
+
+  const updateTotalscore = (id, user, successCallback) => {
+    fetch(`http://localhost:3000/users/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      method: "PUT",
+
+      body: JSON.stringify(user),
+    })
+      .then((r) => r.json())
+
+      .then((data) => {
+        if (data.error === false && typeof successCallback === "function") {
+          successCallback(data.data);
+        }
+      })
+
+      .catch((err) => console.log(err));
+  };
+  updateTotalscore(id, user, (e, data) => {
+    e.preventDefault();
+    setTotalscore(data.totalScore);
+  });
+
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -20,27 +52,6 @@ const SingleQuizBody = ({ quiz }) => {
       setShowScore(true);
     }
   };
-  function addScores() {
-    let finalScore = totalScore + score;
-    setTotalscore(finalScore)
-  }
-  function updateTotalscore(e, name, totalScore, id) {
-    
-    e.preventDefault();
-    fetch(`http://localhost:3000/users/${localStorage.getItem('current-user-id')}`, {
-      method: "PUT",
-      body: {
-        name,
-        totalScore: addScores,
-        id
-      }
-    }).then(() => {
-      setData((prevState) => {
-          setTotalscore(addScores);
-      });
-    });
-  }
-
   return (
     <div>
       {showScore ? (
