@@ -41,11 +41,13 @@ const UsersList = () => {
         value={selected}
         onChange={(e) => setSelected(e.target.value)}
       >
-        <option value={null}>Wybierz...</option>
+        <option value={null} disabled>
+          Wybierz...
+        </option>
         {data.map((user, idx) => {
           return (
             <option user={user} key={user.id} value={idx}>
-              {user.id}. Nazwa: {user.name}. Wynik: {user.totalScore}
+              {user.name}
             </option>
           );
         })}
