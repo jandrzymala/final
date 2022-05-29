@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const SingleQuizBody = ({ quiz, totalScore: _totalScore }) => {
+const SingleQuizBody = ({ quiz }) => {
+  const [loading, setLoading] = useState(true);
   const questions = quiz;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [totalScore, setTotalscore] = useState(_totalScore);
   const currentUser = localStorage.getItem("current-user-name");
   const id = localStorage.getItem("current-user-id");
-
+  const [totalScore, setTotalscore] = useState();
+  const [data, setData] = useState();
+  const currentTotalScore = localStorage.getItem("current-user-totalScore");
   const user = {
     name: currentUser,
-    totalScore: parseInt(totalScore) + parseInt(score),
+    totalScore: parseInt(currentTotalScore) + parseInt(score),
     id,
   };
 
@@ -52,22 +54,45 @@ const SingleQuizBody = ({ quiz, totalScore: _totalScore }) => {
       setShowScore(true);
     }
   };
+  // useEffect(() => {
+  //   fetch(
+  //     `http://localhost:3000/users/${localStorage.getItem("current-user-id")}`
+  //   )
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((userData) => {
+  //       setData(userData);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
   return (
     <div>
       {showScore ? (
         <>
           <h2>Hej {currentUser}</h2>
+
           <form className="userScore" onSubmit={updateTotalscore}>
             <p>
               Zdobyłeś {score} na {questions.length} możliwych
             </p>
-
-            <button type="submit">Aktualizuj wynik</button>
+            <h3> Aktualnie masz {user.totalScore} punktów</h3>
+            <button
+              type="submit"
+              onClick={() => {
+                let generalScore = user.totalScore;
+                localStorage.setItem("current-user-totalScore", generalScore);
+              }}
+            >
+              Aktualizuj wynik
+            </button>
           </form>
         </>
       ) : (
         <>
           <h2>Hej {currentUser}</h2>
+          <h3>Aktualnie masz {currentTotalScore} pkt</h3>
           <div className="question">
             <div className="questionCounter">
               <span>Question {currentQuestion + 1}</span>/{questions.length}
