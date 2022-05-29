@@ -13,7 +13,6 @@ const AddUser = ({ addUser }) => {
         totalScore: 0,
       });
       setShow(true);
-      localStorage.setItem("current-user-name", name);
     }
   }
   return (
@@ -26,9 +25,7 @@ const AddUser = ({ addUser }) => {
               <input
                 type="text"
                 value={name}
-                onChange={
-                  (e) => setName(e.target.value)
-                }
+                onChange={(e) => setName(e.target.value)}
               />
               <button type="submit">Dodaj</button>
             </form>
