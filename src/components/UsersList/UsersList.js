@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./userslist.scss";
-const UsersList = () => {
+const UsersList = ({ setShowQuizes }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState(null);
