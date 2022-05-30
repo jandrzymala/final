@@ -11,7 +11,7 @@ const QuizLeague = () => {
   const handleClickToShowQuizes = () => {
     setShowQuizes(true)
 }
-  if (localStorage.getItem("current-user-id") === null) {
+  if (localStorage.getItem("current-user-name") === null) {
     return (
       <div>
         <UsersList setShowQuizes={handleClickToShowQuizes}/>
