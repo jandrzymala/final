@@ -8,39 +8,17 @@ import UsersList from "../UsersList/UsersList";
 
 const QuizLeague = () => {
   const [showQuizes, setShowQuizes] = useState(false);
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState();
-
-  useEffect(() => {
-    fetch("http://localhost:3000/users")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  const handleClickToShowQuizes = () => {
+    if (localStorage.getItem("current-user-id") === null) {
+        alert('Najpierw musisz wybrać zawodnika')
+    } else {
+        setShowQuizes(true)
+    }
+}
   if (localStorage.getItem("current-user-id") === null) {
     return (
       <div>
-        <UsersList />
-      </div>
-    );
-  } else if (
-    localStorage.getItem("current-user-id") === null ||
-    showQuizes === false
-  ) {
-    return (
-      <div>
-        <h2>Witaj {localStorage.getItem("current-user-name")}</h2>
-        <button
-          onClick={() => {
-            setShowQuizes(true);
-          }}
-        >
-          Rozpocznij
-        </button>
+        <UsersList setShowQuizes={handleClickToShowQuizes}/>
       </div>
     );
   } else {

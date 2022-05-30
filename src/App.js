@@ -1,4 +1,4 @@
-import './generic/reset.scss';
+// import './generic/reset.scss';
 import './App.scss';
 
 import UsersList from './components/UsersList/UsersList';
