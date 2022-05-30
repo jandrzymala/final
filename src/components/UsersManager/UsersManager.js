@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AddUser from '../AddUser/AddUser';
 import SingleUser from '../SingleUser/SingleUser';
 
-function UsersManager() {
+const UsersManager = ({setShow}) => {
 const [data, setData] = useState(null)
 const [loading, setLoading] = useState(true)
 
@@ -27,7 +27,7 @@ async function addUser(user) {
         setData((prevState) => {
         return [...prevState, res]
         })
-        })
+        });
     }  
 }
 function removeUser(id) {
@@ -55,17 +55,29 @@ setLoading(false)
 
 if (loading) {
 return <div>loading </div>
+} else if (localStorage.getItem('current-user-name')===null){return (
+    <div>
+    <AddUser addUser={addUser} />
+    <ul className='usersList'>
+                    {data.map((user) => {
+                    return <SingleUser user={user} key={user.id} removeUser={removeUser}/>
+                    })}
+                </ul>
+    </div>
+    )}
+else{
+    return (
+        <div>
+        <p>Dziękujemy! Gracz <span>{localStorage.getItem('current-user-name')}</span> został dodany. Wróć do gry</p>
+        <a href='/'><button onClick={setShow}>Zamknij manadżera</button></a>
+        <ul className='usersList'>
+                    {data.map((user) => {
+                    return <SingleUser user={user} key={user.id} removeUser={removeUser}/>
+                    })}
+                </ul></div>
+        
+    )
 }
-return (
-<div>
-<AddUser addUser={addUser} />
-<ul className='usersList'>
-                {data.map((user) => {
-                return <SingleUser user={user} key={user.id} removeUser={removeUser}/>
-                })}
-            </ul>
-</div>
-)
 }
 
 export default UsersManager

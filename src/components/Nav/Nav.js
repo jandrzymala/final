@@ -13,7 +13,7 @@ const Nav = () => {
         <ul>
           <li>
             <span onClick={handleClick}>Lista uczestników</span>
-            {show && <UsersManager />}
+            {show && <UsersManager setShow={handleClick}/>}
           </li>
         </ul>
       </div>

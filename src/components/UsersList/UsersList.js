@@ -4,7 +4,6 @@ import "./userslist.scss";
 const UsersList = ({ setShowQuizes }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [showButtonStart, setShowButtonStart] = useState(false);
   const [selected, setSelected] = useState(null);
   const saveToLocalStorage = (name, totalScore, id) => {
     localStorage.setItem("current-user-name", name);
@@ -27,7 +26,7 @@ const UsersList = ({ setShowQuizes }) => {
       console.log(data[selected]);
       const { name, totalScore, id } = data[selected];
       saveToLocalStorage(name, totalScore, id);
-      setShowButtonStart(true);
+      setShowQuizes(true);
     }
   }, [selected]);
 
@@ -43,7 +42,7 @@ const UsersList = ({ setShowQuizes }) => {
         value={selected}
         onChange={(e) => setSelected(e.target.value)}
       >
-        <option value={null} disabled>
+        <option value={null} disabled selected>
           Wybierz...
         </option>
         {data.map((user, idx) => {
@@ -54,11 +53,6 @@ const UsersList = ({ setShowQuizes }) => {
           );
         })}
       </select>
-      {showButtonStart && <button
-          onClick={setShowQuizes}
-        >
-          Rozpocznij
-        </button>}
     </section>
   );
 };

@@ -9,11 +9,7 @@ import UsersList from "../UsersList/UsersList";
 const QuizLeague = () => {
   const [showQuizes, setShowQuizes] = useState(false);
   const handleClickToShowQuizes = () => {
-    if (localStorage.getItem("current-user-id") === null) {
-        alert('Najpierw musisz wybrać zawodnika')
-    } else {
-        setShowQuizes(true)
-    }
+    setShowQuizes(true)
 }
   if (localStorage.getItem("current-user-id") === null) {
     return (
@@ -25,6 +21,7 @@ const QuizLeague = () => {
     return (
       <div>
         <h2>Witaj {localStorage.getItem("current-user-name")}</h2>
+        <p>Aktualnie masz {localStorage.getItem("current-user-totalScore")} pkt</p>
         <ul>
           <li>
             <QuizBody

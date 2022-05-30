@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CountDownTimer from "../CountDownTimer/CountDownTimer";
 
 const SingleQuizBody = ({ quiz }) => {
   const [loading, setLoading] = useState(true);
@@ -100,6 +101,7 @@ const SingleQuizBody = ({ quiz }) => {
         </>
       ) : (
         <>
+        <CountDownTimer deadline={25000}/>
           <h2>Hej {user.name}</h2>
           <h3>Aktualnie masz {user.totalScore} pkt</h3>
           <div className="question">

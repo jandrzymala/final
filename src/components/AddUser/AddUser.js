@@ -13,6 +13,8 @@ const AddUser = ({ addUser }) => {
         totalScore: 0,
       });
       setShow(true);
+      localStorage.setItem('current-user-name', name)
+      localStorage.setItem('current-user-totalScore', 0)
     }
   }
   return (
@@ -34,7 +36,7 @@ const AddUser = ({ addUser }) => {
       )}
       {show && (
         <>
-          <label>Witaj {name}</label>
+          <span>Witaj <strong>{name}</strong>. Zamknij menadżera i przejdź do gry.</span>
         </>
       )}
     </>
