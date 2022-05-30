@@ -1,8 +1,8 @@
 import Countdown from 'react-countdown';
 
-function CountDownTimer() {
+function CountDownTimer({deadline}) {
   return (
-    <Countdown date={Date.now() + 25000} />
+    <Countdown date={Date.now() + deadline} />
   );
 }
 

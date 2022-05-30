@@ -54,6 +54,15 @@ const SingleQuizBody = ({ quiz }) => {
       setShowScore(true);
     }
   };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowScore(true);
+    }, 25000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
   // useEffect(() => {
   //   fetch(
   //     `http://localhost:3000/users/${localStorage.getItem("current-user-id")}`
@@ -71,7 +80,7 @@ const SingleQuizBody = ({ quiz }) => {
     <div>
       {showScore ? (
         <>
-          <h2>Hej {currentUser}</h2>
+          <h2>Hej {user.name}</h2>
 
           <form className="userScore" onSubmit={updateTotalscore}>
             <p>
@@ -91,8 +100,8 @@ const SingleQuizBody = ({ quiz }) => {
         </>
       ) : (
         <>
-          <h2>Hej {currentUser}</h2>
-          <h3>Aktualnie masz {currentTotalScore} pkt</h3>
+          <h2>Hej {user.name}</h2>
+          <h3>Aktualnie masz {user.totalScore} pkt</h3>
           <div className="question">
             <div className="questionCounter">
               <span>Question {currentQuestion + 1}</span>/{questions.length}

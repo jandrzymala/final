@@ -21,7 +21,7 @@ return (
           </li>
     {isOpen && (
         <div className='quizBody'>
-    {/* <CountDownTimer /> */}
+    <CountDownTimer deadline={25000}/>
         {singleQuiz}
         <button onClick={(e) => {
         e.preventDefault()
