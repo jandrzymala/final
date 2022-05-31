@@ -28,9 +28,9 @@ const Nav = () => {
             {/* <span onClick={handleClick}>Lista uczestników</span>
             {show && <UsersManager setShow={handleClick} />} */}
           </li>
-          <li>
+          {/* <li>
             <Link to="/contact">Kontakt</Link>
-          </li>
+          </li> */}
           <li>
             <a href="mailto:jan.drzymala82@gmail.com">Zgłoś błąd</a>
           </li>
