@@ -24,13 +24,7 @@ nav {
     transition: $standard-trans;
     background: linear-gradient($secondary-color 0 0) var(--p, 0) / var(--p, 0)
       no-repeat;
-    &:hover {
-      background-color: $secondary-color;
-      --p: 100%;
-      a {
-        color: $base-color;
-      }
-    }
+
     ul {
       display: block;
     }
@@ -38,6 +32,15 @@ nav {
       color: $secondary-color;
       font-size: 0.9em;
       letter-spacing: 0.5px;
+    }
+  }
+  .meu > li {
+    &:hover {
+      background-color: $secondary-color;
+      --p: 100%;
+      a {
+        color: $base-color;
+      }
     }
   }
   a {
@@ -68,5 +71,25 @@ nav {
   }
 }
 .mMenu {
-  color: $base-color;
+  color: $secondary-color;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #082b57;
+  height: 100vh;
+  z-index: 9999;
+  transition: $standard-trans;
+  padding: $standard-padding;
+  &:hover {
+    color: $base-color * 4;
+  }
+  li {
+    background-color: $base-color * 5;
+    margin: $standard-margin;
+    &:hover {
+      color: $base-color * 4;
+      border: 1px solid $secondary-color;
+    }
+  }
 }
