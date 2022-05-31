@@ -1,3 +1,5 @@
+import "../UsersManager/usersmanager.scss";
+
 import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import AddUser from "../AddUser/AddUser";
@@ -73,7 +75,7 @@ const UsersManager = ({ setShow }) => {
     );
   } else if (localStorage.getItem("current-user-name") !== null || localStorage.getItem("added") !== null) {
     return (
-      <div>
+      <div className="usersManager">
         <p>
           Dziękujemy! Gracz <span>{localStorage.getItem("current-user-name")}</span> został
           dodany. Wróć do gry

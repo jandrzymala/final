@@ -1,0 +1,21 @@
+@import '../../generic/variables.scss';
+@import '../../generic/general.scss';
+.usersManager {
+    padding: $padding-double;
+    color: $base-color;
+    text-align: center;
+    ul{
+        margin: $standard-margin;
+        padding: $standard-padding;
+    background-color: $base-color;
+    color: $secondary-color;
+        li {
+            color: $base-color;
+            background-color: $secondary-color;
+            margin: 1rem auto;
+            border-bottom: 1px solid $base-color;
+            padding: $standard-padding;
+        }
+    }
+    
+}
