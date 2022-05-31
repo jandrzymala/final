@@ -24,9 +24,10 @@ const AddUser = ({ addUser }) => {
       {!show && (
         <>
           <div>
+            <h3>Przedstaw się</h3>
             <form onSubmit={onSubmit}>
-              <label>Przedstaw się</label>
               <input
+                placeholder="Wpisz NICK gracza"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -38,9 +39,9 @@ const AddUser = ({ addUser }) => {
       )}
       {show && (
         <>
-          <span>
+          <h3>
             Witaj <strong>{name}</strong>. Zamknij menadżera i przejdź do gry.
-          </span>
+          </h3>
         </>
       )}
     </>

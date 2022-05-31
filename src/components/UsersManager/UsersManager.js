@@ -1,7 +1,7 @@
 import "../UsersManager/usersmanager.scss";
 
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddUser from "../AddUser/AddUser";
 import SingleUser from "../SingleUser/SingleUser";
 
@@ -60,9 +60,12 @@ const UsersManager = ({ setShow }) => {
 
   if (loading) {
     return <div>loading </div>;
-  } else if (localStorage.getItem("added") === null && localStorage.getItem("current-user-name") === null) {
+  } else if (
+    localStorage.getItem("added") === null &&
+    localStorage.getItem("current-user-name") === null
+  ) {
     return (
-      <div>
+      <div className="usersManager">
         <AddUser addUser={addUser} />
         <ul className="usersList">
           {data.map((user) => {
@@ -73,13 +76,17 @@ const UsersManager = ({ setShow }) => {
         </ul>
       </div>
     );
-  } else if (localStorage.getItem("current-user-name") !== null || localStorage.getItem("added") !== null) {
+  } else if (
+    localStorage.getItem("current-user-name") !== null ||
+    localStorage.getItem("added") !== null
+  ) {
     return (
       <div className="usersManager">
-        <p>
-          Dziękujemy! Gracz <span>{localStorage.getItem("current-user-name")}</span> został
+        <h3>
+          Dziękujemy! Gracz{" "}
+          <strong>{localStorage.getItem("current-user-name")}</strong> został
           dodany. Wróć do gry
-        </p>
+        </h3>
         <Link to="/">
           <button onClick={setShow}>Zamknij manadżera</button>
         </Link>
