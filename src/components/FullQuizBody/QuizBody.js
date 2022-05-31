@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CountDownTimer from '../CountDownTimer/CountDownTimer';
 import '../FullQuizBody/QuizBody.scss';
 
 
@@ -28,7 +27,7 @@ return (
         }
         }
         href='#'>
-        Przerwij
+        Zamknij
     </button>
   </div>
 

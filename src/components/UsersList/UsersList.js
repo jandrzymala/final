@@ -42,12 +42,12 @@ const UsersList = ({ setShowQuizes }) => {
         value={selected}
         onChange={(e) => setSelected(e.target.value)}
       >
-        <option value={null} disabled selected>
+        <option defaultValue={"Initial value"} disabled selected>
           Wybierz...
         </option>
         {data.map((user, idx) => {
           return (
-            <option user={user} key={user.id} value={idx}>
+            <option user={user} key={user.id} value={idx || ''}>
               {user.name}
             </option>
           );

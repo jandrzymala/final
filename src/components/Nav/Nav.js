@@ -10,15 +10,29 @@ const Nav = () => {
 
   return (
     <nav>
-      <div>
-        <ul>
-          <li>
-            <a href="/adduser">Menadżer graczy</a>
-            <span onClick={handleClick}>Lista uczestników</span>
-            {show && <UsersManager setShow={handleClick} />}
-          </li>
-        </ul>
-      </div>
+      <div><Link to='/'><span className="logo">QuizLeague</span></Link></div>
+       <div>
+          <ul className="menu">
+          <li className="mobileMenu">
+              <Link to="/menu">MENU</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/adduser">Menadżer graczy</Link>
+              {/* <span onClick={handleClick}>Lista uczestników</span>
+              {show && <UsersManager setShow={handleClick} />} */}
+            </li>
+            <li>
+              <Link to="/contact">Kontakt</Link>
+            </li>
+            <li>
+              <a href="mailto:jan.drzymala82@gmail.com">Zgłoś błąd</a>
+            </li>
+          </ul>
+        </div> 
+        
     </nav>
   );
 };

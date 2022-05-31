@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useTransition } from "react";
+import './quizLeague.scss';
+import React, { useState } from "react";
 import QuizBody from "../FullQuizBody/QuizBody";
 import questions from "../Quizes/quiz1";
 import questions2 from "../Quizes/quiz2";
@@ -19,36 +20,31 @@ const QuizLeague = () => {
     );
   } else {
     return (
-      <div>
-        <h2>Witaj {localStorage.getItem("current-user-name")}</h2>
+      <section className='quizLeague'>
+        <h2>Witaj <strong>{localStorage.getItem("current-user-name")}</strong></h2>
         <p>Aktualnie masz {localStorage.getItem("current-user-totalScore")} pkt</p>
-        <ul>
-          <li>
+        <div className="quizesList">
             <QuizBody
               title={"Stolice"}
               singleQuiz={<SingleQuizBody quiz={questions} />}
             />
-          </li>
-          <li>
+         
             <QuizBody
               title={"Rzeki"}
               singleQuiz={<SingleQuizBody quiz={questions2} />}
             />
-          </li>
-          <li>
+          
             <QuizBody
               title={"Góry"}
               singleQuiz={<SingleQuizBody quiz={questions3} />}
             />
-          </li>
-          <li>
+          
             <QuizBody
               title={"Różne"}
               singleQuiz={<SingleQuizBody quiz={questions} />}
             />
-          </li>
-        </ul>
-      </div>
+          </div>
+      </section>
     );
   }
 };

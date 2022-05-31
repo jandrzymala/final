@@ -1,8 +1,8 @@
-// import './generic/reset.scss';
+import './generic/reset.scss';
+import './generic/variables.scss';
 import "./App.scss";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import UsersList from "./components/UsersList/UsersList";
 import QuizLeague from "./components/QuizLeague/QuizLeague";
 import UsersManager from "./components/UsersManager/UsersManager";
 import Footer from "./components/Footer/Footer";
@@ -18,11 +18,11 @@ const App = () => {
           <Route exact path="/">
             <Header />
 
-            <section>
+            <main>
               <div className="container">
                 <QuizLeague />
               </div>
-            </section>
+            </main>
           </Route>
         </Switch>
         <Switch>

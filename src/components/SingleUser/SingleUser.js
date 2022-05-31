@@ -5,7 +5,7 @@ return (
 <li>
 <strong>{user.id}. Nazwa: {user.name}</strong>
 <span> {user.totalScore} pkt</span>
-<button onClick={() => removeUser(user.id)}>USUŃ</button>
+{/* <button onClick={() => removeUser(user.id)}>USUŃ</button> */}
 </li>
 )
 }
