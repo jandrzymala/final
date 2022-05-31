@@ -1,0 +1,20 @@
+@import "../../generic/general.scss";
+@import "../../generic/variables.scss";
+
+ul {
+  margin: 1rem auto;
+  li {
+    background: $base-color;
+    color: $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+    a {
+      color: $secondary-color;
+    }
+  }
+}
+@media screen and (max-width: 728px) {
+  .mMenu li {
+    display: block !important;
+    color: $base-color;
+  }
+}
