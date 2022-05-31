@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 const AddUser = ({ addUser }) => {
   const [name, setName] = useState("");
+  const [id, setId] = useState();
   const [show, setShow] = useState(false);
 
   function onSubmit(e) {
@@ -11,10 +12,11 @@ const AddUser = ({ addUser }) => {
       addUser({
         name,
         totalScore: 0,
+        id,
       });
       setShow(true);
-      localStorage.setItem('current-user-name', name)
-      localStorage.setItem('current-user-totalScore', 0)
+      localStorage.setItem("added", true);
+      // localStorage.setItem("current-user-totalScore", 0);
     }
   }
   return (
@@ -36,7 +38,9 @@ const AddUser = ({ addUser }) => {
       )}
       {show && (
         <>
-          <span>Witaj <strong>{name}</strong>. Zamknij menadżera i przejdź do gry.</span>
+          <span>
+            Witaj <strong>{name}</strong>. Zamknij menadżera i przejdź do gry.
+          </span>
         </>
       )}
     </>

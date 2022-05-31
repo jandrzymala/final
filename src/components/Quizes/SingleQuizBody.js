@@ -64,18 +64,18 @@ const SingleQuizBody = ({ quiz }) => {
       clearTimeout(timeout);
     };
   }, []);
-  // useEffect(() => {
-  //   fetch(
-  //     `http://localhost:3000/users/${localStorage.getItem("current-user-id")}`
-  //   )
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((userData) => {
-  //       setData(userData);
-  //       setLoading(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(
+      `http://localhost:3000/users/${localStorage.getItem("current-user-id")}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((userData) => {
+        setData(userData);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div>
@@ -92,7 +92,9 @@ const SingleQuizBody = ({ quiz }) => {
               type="submit"
               onClick={() => {
                 let generalScore = user.totalScore;
+                let id = user.id;
                 localStorage.setItem("current-user-totalScore", generalScore);
+                localStorage.setItem("current-user-id", id);
               }}
             >
               Aktualizuj wynik
@@ -101,7 +103,7 @@ const SingleQuizBody = ({ quiz }) => {
         </>
       ) : (
         <>
-        <CountDownTimer deadline={25000}/>
+          <CountDownTimer deadline={25000} />
           <h2>Hej {user.name}</h2>
           <h3>Aktualnie masz {user.totalScore} pkt</h3>
           <div className="question">

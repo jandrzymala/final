@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import UsersManager from "../UsersManager/UsersManager";
 import "./nav.scss";
 const Nav = () => {
@@ -12,8 +13,9 @@ const Nav = () => {
       <div>
         <ul>
           <li>
+            <a href="/adduser">Menadżer graczy</a>
             <span onClick={handleClick}>Lista uczestników</span>
-            {show && <UsersManager setShow={handleClick}/>}
+            {show && <UsersManager setShow={handleClick} />}
           </li>
         </ul>
       </div>
