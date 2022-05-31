@@ -1,0 +1,10 @@
+@import './variables.scss';
+body {
+font-family: $basic-font;
+}
+button {
+    @include standard-button;
+}
+a {
+    color: $secondary-color;
+}

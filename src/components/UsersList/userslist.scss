@@ -1,16 +1,20 @@
+@import '../../generic/variables.scss';
+
 .users {
-    background-color: #fff;
+    background-color: $secondary-color;
     text-align: center;
+    color:$base-color;
     h3 {
         padding: 1rem;
-        color:black;
+        font-family: $base-font;
+        margin: $standard-margin;
+        font-size: 2rem;
+        
     }
-}
-.container {
     .usersList {
+        margin: 1rem auto;
         display: block;
-        margin: auto;
-        background: #fff;
-        padding: 1rem 2rem;
+        padding: $padding-double;
+        background-color: $secondary-color;
     }
 }

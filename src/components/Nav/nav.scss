@@ -1,26 +1,67 @@
+@import '../../generic/variables.scss';
+
 nav {
-    background-color: #082b57;
-    color: #fff;
-    border-bottom: 3px solid transparent;
-    ul{
+    background-color: $base-color;
+    color: $secondary-color;
+    font-family: $basic-font;
+    @include flex-component;
+    align-items: center;
+    justify-content: space-between;
+    ul {
+      li {
+        &:not(:first-nth-of-type){
+          display: none;
+        }
+      }
       margin: 0 auto;
       @media screen and (min-width: 728px) {
-        display: flex;
+        @include flex-component;
         justify-content: flex-end;
       }
+      
     }
     li {
-      color: black;
       padding: 1rem;
+      transition: $standard-trans;
+      background: linear-gradient($secondary-color 0 0) var(--p, 0) / var(--p, 0) no-repeat;
       &:hover {
-        border-bottom: 3px solid #fff;
+        background-color: $secondary-color;
+        --p: 100%;
+      a{
+        color: $base-color;
+      }
       }
       ul {
         display: block;
+      }
+      a {
+        color: $secondary-color;
+        font-size: .9em;
+        letter-spacing: .5px;
       }
     }
     a {
       cursor: pointer;
       padding: .5rem 1rem;
+    }
+    .logo {
+      color: $secondary-color;
+      font-size:2rem;
+      font-family: $logo-font;
+      padding: 0 .6rem;
+      margin: 2px;
+    }
+  }
+  @media screen and (max-width: 728px) {
+    .menu {
+      li{&:not(:first-child){
+        display: none;
+      }}
+    }
+  }
+
+  @media screen and (min-width: 728px) {
+    .mobileMenu {
+      display: none;
     }
   }

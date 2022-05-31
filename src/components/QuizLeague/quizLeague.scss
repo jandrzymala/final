@@ -1,0 +1,14 @@
+@import '../../generic/variables.scss';
+.quizLeague {
+    text-align: center;
+    font-family: $base-font;
+    color: $base-color;
+    font-size:1.2rem;
+    padding: 3rem 0;
+}
+.quizesList {
+    margin: 3rem 0;
+    ul {
+        margin: 1rem;
+    }
+}
