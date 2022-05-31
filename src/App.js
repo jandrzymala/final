@@ -1,5 +1,5 @@
-import './generic/reset.scss';
-import './generic/variables.scss';
+import "./generic/reset.scss";
+import "./generic/variables.scss";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -8,6 +8,7 @@ import UsersManager from "./components/UsersManager/UsersManager";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";
+import MobileMenu from "./components/Mobile-menu/MobileMenu";
 
 const App = () => {
   return (
@@ -28,6 +29,11 @@ const App = () => {
         <Switch>
           <Route path="/adduser">
             <UsersManager />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/menu">
+            <MobileMenu />
           </Route>
         </Switch>
         <Footer />

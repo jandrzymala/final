@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UsersManager from "../UsersManager/UsersManager";
+import MobileMenu from "../Mobile-menu/MobileMenu";
 import "./nav.scss";
 const Nav = () => {
   const [show, setShow] = useState(false);
@@ -18,7 +19,8 @@ const Nav = () => {
       <div>
         <ul className="menu">
           <li className="mobileMenu">
-            <Link to="/menu">MENU</Link>
+            {/* <Link to="/menu">MENU</Link> */}
+            <MobileMenu />
           </li>
           <li>
             <Link to="/">Home</Link>
