@@ -1,10 +1,17 @@
-@import './variables.scss';
+@import "./variables.scss";
 body {
-font-family: $basic-font;
+  font-family: $basic-font;
 }
 button {
-    @include standard-button;
+  @include standard-button;
 }
 a {
-    color: $secondary-color;
+  color: $secondary-color;
+}
+h2,
+h3 {
+  font-family: $logo-font;
+}
+strong {
+  color: $base-color * 2;
 }

@@ -1,33 +1,32 @@
-@import '../../generic/variables.scss';
-@import '../../generic/general.scss';
+@import "../../generic/variables.scss";
+@import "../../generic/general.scss";
 footer {
-    @extend .centeredFlex;
-    background-color: $base-color;
-    color: $secondary-color;
-    padding: 2rem 0;
-    text-align: center;
-    .footerLinks {
-        margin: $standard-margin;
-        background: $secondary-color;
-        li {
-            padding: $standard-padding;
-            border-bottom: 1px solid $base-color;
-        }
-        a {
-            color: $base-color;
-            text-transform: uppercase;
-        }
-        
-    }
-    @media screen and (min-width: 728px) {
-        @include flex-component;
-        align-items: center;
-        justify-content: space-between;
-        ul {
-            display: none;
-        }
+  @extend .centeredFlex;
+  background-color: $base-color;
+  color: $secondary-color;
+  padding: 2rem;
+  text-align: center;
+  .footerLinks {
+    margin: $standard-margin;
+    background: $secondary-color;
+    li {
+      padding: $standard-padding;
+      border-bottom: 1px solid $base-color;
     }
     a {
-        margin: 1rem;
+      color: $base-color;
+      text-transform: uppercase;
     }
+  }
+  @media screen and (min-width: 728px) {
+    @include flex-component;
+    align-items: center;
+    justify-content: space-between;
+    ul {
+      display: none;
+    }
+  }
+  a {
+    margin: 1rem;
+  }
 }

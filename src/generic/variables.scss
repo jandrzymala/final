@@ -1,32 +1,39 @@
 $base-color: #082b57;
 $secondary-color: #fff;
-$base-font:'Lato', sans-serif;
-$logo-font: 'Roboto Slab', serif;
-$basic-font: 'Open Sans', sans-serif;
-$standard-padding: .5rem 1rem;
+$base-font: "Lato", sans-serif;
+$logo-font: "Roboto Slab", serif;
+$basic-font: "Open Sans", sans-serif;
+$standard-padding: 0.5rem 1rem;
 $padding-double: 1rem 2rem;
 $standard-margin: 1rem 2rem;
-$standard-trans: .4s, background-position 0s;
+$standard-trans: 0.4s, background-position 0s;
+$light-layer: #ffffff80;
+$dark-layer: rgba(0, 0, 0, 0.65);
+$darkTextsh: 2px 5px 12px black;
 @mixin flex-component {
-    display: flex;
+  display: flex;
 }
 @mixin standard-button {
-    padding: $standard-padding;
-    color: $base-color;
-    font-family: $base-font;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
-    background: linear-gradient($base-color 0 0) var(--p, 0) / var(--p, 0) no-repeat;
-    transition: $standard-trans;
-      &:hover {
-        background-color: $base-color;
-        --p: 100%;
-        color: $secondary-color;
-    }
+  padding: $standard-padding;
+  color: $base-color;
+  font-family: $base-font;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient($base-color 255 255) var(--p, 0) / var(--p, 0)
+    no-repeat;
+  transition: $standard-trans;
+  &:hover {
+    background-color: $base-color;
+    --p: 100%;
+    color: $secondary-color;
+  }
+  @media screen and (max-width: 728px) {
+    min-height: 50px;
+  }
 }
 
 .centeredFlex {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
