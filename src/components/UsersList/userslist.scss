@@ -1,20 +1,21 @@
-@import '../../generic/variables.scss';
+@import "../../generic/variables.scss";
 
 .users {
+  background-color: $secondary-color;
+  text-align: center;
+  color: $base-color;
+  h3 {
+    padding: 1rem;
+    font-family: $base-font;
+    margin: $standard-margin;
+    font-size: 2rem;
+  }
+  .usersList {
+    margin: 1rem auto;
+    display: block;
+    padding: $padding-double;
     background-color: $secondary-color;
+    min-width: 50%;
     text-align: center;
-    color:$base-color;
-    h3 {
-        padding: 1rem;
-        font-family: $base-font;
-        margin: $standard-margin;
-        font-size: 2rem;
-        
-    }
-    .usersList {
-        margin: 1rem auto;
-        display: block;
-        padding: $padding-double;
-        background-color: $secondary-color;
-    }
+  }
 }
